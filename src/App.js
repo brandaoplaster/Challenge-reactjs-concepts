@@ -13,6 +13,17 @@ function App() {
   }, []);
 
   async function handleAddRepository() {
+    const repository = {
+      title: `React Native ${Date.now()}`,
+      url: "https://github.com/brandaoplaster",
+      techs: [
+        "Javacript",
+        "reactJs"
+      ]
+    }
+
+    const response = await api.post("/repositories", repository);
+    setRepositories([...repositories, response.data]);
 
   }
 
